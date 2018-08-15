@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+{% block title %}Joydays : Annonce - {{ annonce.titre}} {% endblock %}
+{% block body %}  
+<h1>{{ annonce.titre|upper}}</h1>
+<hr/>
+<p>{{ annonce.introduction|raw}}</p>
+<hr/>
+<p>{{ annonce.description|raw}}</p>
+<p><a href="{{ path('main_annonce_liste')}}">Retour liste</a></p>
+{% endblock %}
+

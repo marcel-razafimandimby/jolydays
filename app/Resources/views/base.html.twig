@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="jolydays">
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
+    <title>{% block title %}Bienvenue Jolydays.com{% endblock %}</title>
+    <!-- Bootstrap core CSS -->
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/index.css') }}" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><img src="{{ asset('images/logo_jolydays_white.png') }}" alt="" class="logo_home" width="130px" height="30px"></a>
+        </div>
+        
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <li class="active"><a>Sommaire</a></li>
+            <li><a href="{{ path('main_homepage')}}">Hello world</a></li>
+            <li><a href="{{ path('check_param_route',{'_locale':'fr','year':'2018','slug':'publicite-auto','_format':'html'})}}">Configuration route</a></li>
+            <li><a href="{{ path('annonce_categorie_index')}}">Categorie</a>
+              <ul>
+                    <li><a href="{{ path('annonce_categorie_index')}}">Liste</a></li>
+                    <li><a href="{{ path('annonce_categorie_new')}}">Ajouter</a></li>
+                </ul>
+            </li>
+          </ul>
+          <ul class="nav nav-sidebar">
+            <li><a href="{{ path('annonce_annonce_index')}}">Annonce</a>
+              <ul>
+                    <li><a href="{{ path('annonce_annonce_index')}}">Liste</a></li>
+                    <li><a href="{{ path('annonce_annonce_new')}}">Ajouter</a></li>
+                </ul>
+            </li>
+          </ul>
+          <ul class="nav nav-sidebar">
+            <li><a href="{{ path('main_annonce_liste')}}">Toutes les annonces</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+           {% block body %} {% endblock %}
+          
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }} "></script>
+    <script src="{{ asset('js/docs.min.js') }}"></script>
+    <script type="text/javascript">
+        function deleteList(){
+            if(confirm('Voulez-vous vraiement le supprimer?')){
+                return true;
+            }else{
+                return false;
+            }
+        }
+    </script>
+    {% block javascripts %}{% endblock %}
+    
+  </body>
+</html>

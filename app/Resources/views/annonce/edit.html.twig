@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+{% form_theme edit_form 'bootstrap_3_horizontal_layout.html.twig' %}
+
+{% block body %}
+    <div class="row">
+    <h1>Modifier Annonce</h1>
+    <div class="col-md-8">
+        <ul class="list-unstyled">
+        {% for key, messages in app.session.flashbag.all() %}
+            <li class="alert {% if key == 'error'%}alert-danger{%else%}alert-success{% endif %}">
+                {% for message in messages %}
+                    {%if key == 'error'%}<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span><span class="sr-only">Error:</span>{% endif%} {{ message }}
+                {% endfor %}
+            </li>
+        {% endfor %}
+        </ul>
+        {{ form_start(edit_form) }}
+            {{ form_widget(edit_form) }}
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <input type="submit" value="Valider" class="btn btn-primary" />
+                    
+                </div>
+            </div>
+        {{ form_end(edit_form) }}
+
+        <ul class="list-unstyled action">
+            <li>
+                <a href="{{ path('annonce_annonce_new') }}"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Nouvelle annonce</a>
+            </li>
+        </ul>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+{% block title %}Joydays : Création et configuration d'une route{% endblock %}
+{% block body %}  
+<h1>Création et configuration d'une route</h1>
+<p>L'objectif est de faire correspondance une URL et des paramètres.</p>
+<p>Format path : /annonce/{_locale}/{year}/{slug}.{_format} </p>
+<ul>
+	<li>_locale : {{ _locale }}</li>
+	<li>year : {{ year }}</li>
+	<li>slug : {{ slug }}</li>
+	<li>_format : {{ _format }}</li>
+</ul>
+{% endblock %}
+

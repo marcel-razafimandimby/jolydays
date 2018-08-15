@@ -1,0 +1,37 @@
+main_annonce_categorie:
+    resource: "@AppBundle/Resources/config/routing/categorie.yml"
+    prefix:   /annonce/categorie
+
+#annonce
+main_annonce_annonce:
+    resource: "@AppBundle/Resources/config/routing/annonce.yml"
+    prefix:   /annonce/annonce
+
+#page d'accueil
+main_homepage:
+    path:     /
+    defaults: { _controller: AppBundle:Index:index }
+
+#test parametre route
+check_param_route:
+    path:     /annonce/{_locale}/{year}/{slug}.{_format}
+    defaults: { _controller: AppBundle:Annonce:annonce, _format: html }
+    requirements:
+        _locale:  en|fr
+        _format:  html
+        year:     \d+
+
+#hello world
+hello_the_world:
+    path:     /hello-world.html
+    defaults: { _controller: AppBundle:Index:hello }
+
+#liste annonce par categorie
+main_annonce_liste:
+    path: /toutes-les-annonces.html
+    defaults: { _controller: AppBundle:Index:listAnnonce }
+
+#fiche annonce
+main_fiche_annonce:
+    path: /annonce/{id}.html
+    defaults: { _controller: AppBundle:Index:ficheAnnonce }
